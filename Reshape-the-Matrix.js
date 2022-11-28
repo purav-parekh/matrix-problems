@@ -34,3 +34,19 @@ const reshape = (mat,r,c) => {
   }
   return res
 }
+
+// with no inbuilt-functions
+const reshape = (mat,r,c) => {
+  let m = mat.length
+  let n = mat[0].length
+  if(m*n !== r*c) return mat
+  else{
+    let res = []
+    for(let i =0;i<m*n;i++){
+      let r = Math.floor(i/c)
+      if(!res[r]) res.push([])
+      res[r].push(mat[Math.floor(i/n)][i%n])
+    }    
+  }
+  return res
+}
